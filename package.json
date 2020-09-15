@@ -1,0 +1,16 @@
+{
+  "name": "playwright_ex",
+  "version": "1.0.0",
+  "description": "Playwright playground",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "check": "node checkCheck.js"
+  },
+  "author": "Colin Skow",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.4.2",
+    "playwright": "^1.4.0"
+  }
+}
