@@ -1,0 +1,7 @@
+resources:
+  pipelines:
+  - pipeline: playwrightPipe   # Name of the pipeline resource
+    source: skow0020.qa-library # Name of the pipeline referenced by the pipeline resource
+    trigger: 
+      branches:
+      - master
