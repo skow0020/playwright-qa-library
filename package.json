@@ -4,8 +4,7 @@
   "description": "Playwright playground",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "check": "node checkCheck.js"
+    "test": "jest"
   },
   "author": "Colin Skow",
   "license": "ISC",

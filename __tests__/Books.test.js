@@ -1,14 +1,13 @@
 const playwright = require('playwright');
-const tutorialPage = require('../pages/Tutorials.json')
-const addTutorialPage = require('../pages/AddTutorial.json')
-const loginPage = require('../pages/Login.json')
+const booksPage = require('../pages/Books.json')
 const commonElements = require('../pages/Common.json')
+const loginPage = require('../pages/Login.json')
 const constants = require('../helpers/constants.json')
 const sidebar = require('../components/sideBar.json')
 
 for (const browserType of ["chromium", "webkit"]) {
 
-  describe(`(${browserType}): UI Tutorial Tests with Playwright`, () => {
+  describe(`(${browserType}): UI Book Tests with Playwright`, () => {
     let browser = null;
     let page = null;
 
@@ -18,7 +17,7 @@ for (const browserType of ["chromium", "webkit"]) {
 
       if (!page) {
         throw new Error("Connection wasn't established");
-      }
+      }    
 
       await page.goto(constants.URL, {
         waitUntil: "networkidle0"
@@ -40,20 +39,14 @@ for (const browserType of ["chromium", "webkit"]) {
       await browser.close();
     });
 
-    test(`(${browserType}): Add tutorial`, async () => {
-      expect(await page.title()).toBe("QA Library");
-      
-      await page.click(sidebar.tutorials)
-      await page.click(tutorialPage.addTutorial)
-      await page.fill(addTutorialPage.title, "Into the abyss")
+    test(`(${browserType}): Add book`, async () => {
+      await page.click(sidebar.books)
+      await page.click(booksPage.addBook)
     });
 
-    test(`(${browserType}): Add tutorial alert`, async () => {
-      expect(await page.title()).toBe("QA Library");
-
-      await page.click(sidebar.tutorials)
-      await page.click(tutorialPage.addTutorial)
-      await page.fill(addTutorialPage.title, "Into the abyss")
+    test(`(${browserType}): Add book alert`, async () => {
+      await page.click(sidebar.books)
+      await page.click(booksPage.addBook)
       await page.click(commonElements.submit)
     });
   });
