@@ -5,3 +5,12 @@ resources:
     trigger: 
       branches:
       - master
+      stages:
+      - stage: 'runAutomation'
+        pool: 
+          vmImage: 'Ubuntu-16.04'
+        jobs:
+        - job: secure_buildjob
+          steps:
+          - script: echo This happens before code 
+            displayName: 'Base: Pre-build'
