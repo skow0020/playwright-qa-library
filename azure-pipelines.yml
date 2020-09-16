@@ -5,6 +5,9 @@ resources:
     trigger: 
       branches:
       - master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
       
 steps:
 - task: NodeTool@0
